@@ -11,14 +11,40 @@ def selection_sort(arr):
 
         # TO-DO: swap
         # Your code here
-
+        #Find the index of the smallest in the remaining array
+        for j in range(i + 1, len(arr)):
+            if arr[smallest_index] > arr[j]:
+                smallest_index = j
+                
+        if smallest_index != cur_index:
+            arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index] 
     return arr
+
+        # #Now swap the smallest value with the value at cur_index
+        #     #store the value for the swap
+        # smallest_value = arr[smallest_index]
+        #     #set the former smallest value for the current index value
+        # arr[smallest_index] = arr[cur_index]
+        #     #now go fill in that saved value at the current index
+        # arr[cur_index] = smallest_value  
+        
+    
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    # First, we determine the length of the array for the for loop we will run 
+    arr_len = len(arr)
 
+    # Next, we set the for loop to run up to the last index, aka (arr_len - 1)
+    for i in range(arr_len - 1):
+        # Then we create a nested for loop that starts at the beginning of the array and goes through the remaining array elements: (arr_len - i -1) represents the length of the array minus the number of elements already sorted by the first for loop
+        for j in range(0, arr_len - i - 1):
+            # Next, for each element, we check to see if the value at the current index is greater than the value to the right of it
+            if arr[j] > arr[j + 1]:
+                # If the current value is greater than the one to the right, we swap the elements before resuming the for loop
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
     return arr
 
